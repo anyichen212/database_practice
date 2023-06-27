@@ -1,15 +1,11 @@
+//pool.js = holds all the command functions
+
 const express = require('express')
 const app = express()
 const PORT = 8080;
 const db = require('./pool');
-const bp = require('body-parser')
 
-app.use(bp.json())
-app.use(
-  bp.urlencoded({
-    extended: true,
-  })
-)
+app.use(express.json());
 
 
 app.get('/pets', db.getPets);

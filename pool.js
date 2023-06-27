@@ -1,5 +1,3 @@
-const { request, response } = require('express');
-
 require('dotenv').config();
 
 const pg = require('pg').Pool
@@ -11,6 +9,7 @@ const pool = new pg({
   port: 5432,
 })
 
+//get all pets
 const getPets = (request, response) => {
     //const id = parseInt(request.params.id)
   
@@ -22,6 +21,7 @@ const getPets = (request, response) => {
     })
   }
 
+  //get all dogs
 const getDogs = (request, response) => {
     const id = parseInt(request.params.id)
   
@@ -34,6 +34,7 @@ const getDogs = (request, response) => {
     })
   }
 
+  //get dog by id
 const getDogById = (request, response) => {
     const id = parseInt(request.params.id);
 
@@ -46,6 +47,7 @@ const getDogById = (request, response) => {
       })
 }
 
+//get all cats
 const getCats = (request, response) => {
     const id = parseInt(request.params.id)
   
@@ -58,6 +60,7 @@ const getCats = (request, response) => {
     })
   }
 
+  //get cat by id
 const getCatById = (request, response) => {
     const id = parseInt(request.params.id);
 
@@ -70,6 +73,7 @@ const getCatById = (request, response) => {
       })
 }
 
+//create a new pet
 const createPet = (request, response) => {
     const { name, type, ownerID} = request.body;
 
@@ -81,6 +85,7 @@ const createPet = (request, response) => {
     })
 }
 
+//update pet by id
 const updatePet = (request, response) => {
     const id = parseInt(request.params.id);
     const { name, type, ownerID} = request.body;
@@ -95,6 +100,7 @@ const updatePet = (request, response) => {
 
 }
 
+//delete pet by id
 const deletePet = (request, response) => {
     const id = parseInt(request.params.id);
 
